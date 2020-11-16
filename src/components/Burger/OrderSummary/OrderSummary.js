@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
+
+class OrderSummary extends Component{
+
+    componentDidUpdate = () => {
+        console.log('[OrderSummary] DidUpdate');
+    }
+
+    render() {
+
 class OrderSummary extends Component {
 
     componentDidUpdate() {
@@ -10,6 +19,7 @@ class OrderSummary extends Component {
     }
 
     render () {
+
 
         const ingredientSummary = Object.keys(this.props.ingredients)
         .map(igKey => {
@@ -23,7 +33,7 @@ class OrderSummary extends Component {
         return (
             <Aux>
                 <h3>Your Order</h3>
-                <p>A delicious burger with the following ingredients:</p>
+                <p>A delicious burger with the following ingredients:</p
                 <ul>
                     {ingredientSummary}
                 </ul>
@@ -34,7 +44,6 @@ class OrderSummary extends Component {
             </Aux>
         );
     }
-
 }
 
 export default OrderSummary;

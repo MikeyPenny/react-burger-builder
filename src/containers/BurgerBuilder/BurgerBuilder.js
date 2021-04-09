@@ -17,7 +17,7 @@ class BurgerBuilder extends Component {
 		purchasing: false,
 	};
 
-	componentDidMount = async () => {
+	componentDidMount = () => {
 		this.props.onInitIngredients();
 	};
 
@@ -31,8 +31,6 @@ class BurgerBuilder extends Component {
 			}, 0);
 		return sum > 0;
 	}
-
-	
 
 	purchaseHandler = () => {
 		this.setState({ purchasing: true });
@@ -84,7 +82,6 @@ class BurgerBuilder extends Component {
 				/>
 			);
 		}
-		
 
 		return (
 			<Aux>

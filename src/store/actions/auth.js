@@ -29,11 +29,11 @@ export const logout = () => {
 	};
 };
 
-export const checkAuthTimeout = () => {
+export const checkAuthTimeout = (expires) => {
 	return (dispatch) => {
 		setTimeout(() => {
 			dispatch(logout());
-		}, 3600 * 1000);
+		}, expires * 1000);
 	};
 };
 
@@ -43,9 +43,9 @@ export const auth = (email, password, isSignup) => {
 		const authData = {
 			email: email,
 			password: password,
-			retunrSecureToken: true,
+			returnSecureToken: true,
 		};
-
+		
 		let url =
 			"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCH0VRAqOr3cKlQBcq6XHPEQP_ASQzEp8w";
 		if (!isSignup)
@@ -59,7 +59,7 @@ export const auth = (email, password, isSignup) => {
 			});
 			console.log(response);
 			dispatch(authSuccess(response.data));
-			dispatch(checkAuthTimeout());
+			dispatch(checkAuthTimeout(response.data.expiresIn));
 		} catch (err) {
 			console.log(err);
 			dispatch(authFail(err.response.data.error));

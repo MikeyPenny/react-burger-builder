@@ -14,18 +14,18 @@ const SideDrawer = (props) => {
     : attachedClasses = [classes.SideDrawer, classes.Close]
     
     return (
-        <Aux>
-            <Backdrop show={props.open} clicked={props.closed}/>
-            <div className={attachedClasses.join(' ')}>
-                <div className={classes.Logo}>
-                    <Logo />
-                </div>
-                <nav>
-                    <NavigationItems />
-                </nav>
-            </div>
-        </Aux>
-    );
+			<Aux>
+				<Backdrop show={props.open} clicked={props.closed} />
+				<div className={attachedClasses.join(" ")}>
+					<div className={classes.Logo}>
+						<Logo />
+					</div>
+					<nav>
+						<NavigationItems isAuth={props.auth} />
+					</nav>
+				</div>
+			</Aux>
+		);
 }
 
 export default SideDrawer;

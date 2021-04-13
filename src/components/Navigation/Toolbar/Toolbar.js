@@ -8,16 +8,16 @@ import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
 const Toolbar = (props) => {
     return (
-        <header className={classes.Toolbar}>
-            <DrawerToggle clicked={props.drawerToggleClicked} />
-            <div className={classes.Logo}>
-                <Logo />
-            </div>
-            <nav className={classes.DesktopOnly}>
-                <NavigationItems />
-            </nav>
-        </header>
-    );
+			<header className={classes.Toolbar}>
+				<DrawerToggle clicked={props.drawerToggleClicked} />
+				<div className={classes.Logo}>
+					<Logo />
+				</div>
+				<nav className={classes.DesktopOnly}>
+					<NavigationItems isAuth={props.auth} />
+				</nav>
+			</header>
+		);
 }
 
 export default Toolbar;

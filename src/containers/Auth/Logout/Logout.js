@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 
 class Logout extends Component {
 	componentDidMount() {
-		this.props.onLogout(this.props.history);
+		this.props.onLogout();
 	}
 
 	render() {

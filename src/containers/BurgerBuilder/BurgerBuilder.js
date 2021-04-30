@@ -12,7 +12,7 @@ import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
 
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
 	state = {
 		purchasing: false,
 	};
@@ -23,7 +23,7 @@ class BurgerBuilder extends Component {
 
 	updatePurchaseState(ingredients) {
 		const sum = Object.keys(ingredients)
-			.map((igKey) => {
+			.map(igKey => {
 				return ingredients[igKey];
 			})
 			.reduce((sum, el) => {
@@ -36,8 +36,8 @@ class BurgerBuilder extends Component {
 		if (this.props.isAuth) {
 			this.setState({ purchasing: true });
 		} else {
-			this.props.onSetRedirectPath("/checkout");
-			this.props.history.push("/auth");
+			this.props.onSetRedirectPath('/checkout');
+			this.props.history.push('/auth');
 		}
 	};
 
@@ -47,7 +47,7 @@ class BurgerBuilder extends Component {
 
 	purchaseContinueHandler = () => {
 		this.props.onInitPurchase();
-		this.props.history.push("/checkout");
+		this.props.history.push('/checkout');
 	};
 
 	render() {
